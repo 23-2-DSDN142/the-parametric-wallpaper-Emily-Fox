@@ -7,27 +7,32 @@ function setup() {
 //draw - this function loops, the code within read through repeatedly while running
 function draw() {
   clear(); // resets all elements on screen
-  background(255); // this makes the whole canvas the screen grey
+  background(255); // this makes the whole canvas the screen white
   var triH = 60;
-  var triW = triH/2;
+  var triW = triH/2;//thease are the size of the single triangles
   var fliped = false;
-  var flipNext = true;
-  var allign = true;
-  var spaces = false;
-  var square = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = false; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = true;
+  var flip3 = true;
+  var flip4 = true;//thease variables control wether or not the color should change in each state
+  var flipSkip = false;
+  var skipThis = 0;
+  var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
   noStroke();
-  var red=random(0,255);
-  var green=random(0,0);
-  var blue=random(red,red);
+  var red=random(0,0);
+  var green=random(100,255);
+  var blue=random(green,green);
   fill(red,green,blue);
   stroke(red,green,blue);
-  //text("x pos is " + mouseX, 50, 50); // displays text, including a P5.js variable which tracks the mouse position
-  //text("y pos is " + mouseY, 50, 80);
-
-  //ellipse(mouseX, mouseY, 20, 20); // draws a circle 20 pixels accross at location of the mouse pointer
-  //line(mouseX, mouseY, pmouseX, pmouseY); // draws a line from the mouse pointer, to where the mouse pointer previously was
+  //this sets the triangle color to something within the paramiters
+  //in hindsight i should have made this into a function
   for (var j=0;j<720/triH;j++){
     for (var i=0;i<1080/triW;i++){
+    //this runs the script once for every triangle
       if (!fliped){
         if (flipNext){
           beginShape();
@@ -38,14 +43,22 @@ function draw() {
           endShape();
           flipNext=false;
           fliped=true;
-          if (!spaces)i--;
-          if (!square){
-          var red=random(0,255);
-          var green=random(0,0);
-          var blue=random(red,red);
-          fill(red,green,blue);
-          stroke(red,green,blue);
+          //this draws a right angle triangle like you would see in a top left corner
+          i--;
+          if (flip1){
+          if ((!flipSkip)||(!skipThis)){
+            //this determains if the color should change
+            var red=random(0,0);
+            var green=random(100,255);
+            var blue=random(green,green);
+            fill(red,green,blue);
+            stroke(red,green,blue);
+            if (spaces)i++;
           }
+          if (skipThis==skipTurns)skipThis=0;
+            else skipThis++;
+          }
+          //updates the skip
         }
         else{
           beginShape();
@@ -54,13 +67,21 @@ function draw() {
           vertex(triW+(i*triW),triH+(j*triH));
           vertex(triW+(i*triW),(j*triH));
           endShape();
+          //this draws a top right corner triangle
           flipNext=true;
-          if (square){
-            var red=random(0,255);
-            var green=random(0,0);
-            var blue=random(red,red);
-            fill(red,green,blue);
-            stroke(red,green,blue);
+          if (flip2){
+            if ((!flipSkip)||(!skipThis)){
+              //changes the color
+              var red=random(0,0);
+              var green=random(100,255);
+              var blue=random(green,green);
+              fill(red,green,blue);
+              stroke(red,green,blue);
+              if (spaces)i++;
+            }
+            if (skipThis==skipTurns)skipThis=0;
+            else skipThis++;
+            //updates the skip
             }
         }
       }
@@ -74,13 +95,21 @@ function draw() {
           endShape();
           flipNext=false;
           fliped=false;
-          if (!spaces)i--;
-          if (!square){
-          var red=random(0,255);
-          var green=random(0,0);
-          var blue=random(red,red);
-          fill(red,green,blue);
-          stroke(red,green,blue);
+          //this draws a bottem left corner triangle
+          i--;
+          if (flip3){
+            if ((!flipSkip)||(!skipThis)){
+              //changes the color
+              var red=random(0,0);
+              var green=random(100,255);
+              var blue=random(green,green);
+              fill(red,green,blue);
+              stroke(red,green,blue);
+              if (spaces)i++;
+            }
+            if (skipThis==skipTurns)skipThis=0;
+            else skipThis++;
+            //updates the skip
           }
         }
         else{
@@ -90,36 +119,43 @@ function draw() {
           vertex((i*triW),triH+(j*triH));
           vertex(triW+(i*triW),triH+(j*triH));
           endShape();
+          //this draws a bottem right corrner triangle
           flipNext=true;
-          if (square){
-            var red=random(0,255);
-            var green=random(0,0);
-            var blue=random(red,red);
-            fill(red,green,blue);
-            stroke(red,green,blue);
+          if (flip4){
+            if ((!flipSkip)||(!skipThis)){
+              var red=random(0,0);
+              var green=random(100,255);
+              var blue=random(green,green);
+              fill(red,green,blue);
+              stroke(red,green,blue);
+              //changes the color
+              if (spaces)i++;
+            }
+            if (skipThis==skipTurns)skipThis=0;
+            else skipThis++;
+            //updates the skip
             }
         }
       }
    }
    if (allign){
+    //this code basicly reverses the orentation of the triangle
    if (fliped){
     fliped=false;
-    var red=random(0,255);
-  var green=random(0,0);
-  var blue=random(red,red);
-  fill(red,green,blue);
-  stroke(red,green,blue);
 
    }
    else {
     fliped=true;
-    var red=random(0,255);
-          var green=random(0,0);
-          var blue=random(red,red);
-          fill(red,green,blue);
-          stroke(red,green,blue);
    } 
   }
+    var red=random(0,0);
+  var green=random(100,255);
+  var blue=random(green,green);
+  fill(red,green,blue);
+  stroke(red,green,blue);
+  if (rowSpaces)j++;
+  //one last color change
 }
   sleep(9999999999999999999999);
+  //this stops the program from doing anything else
 }
