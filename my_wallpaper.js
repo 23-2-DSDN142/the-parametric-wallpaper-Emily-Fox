@@ -26,9 +26,9 @@ function draw() {
   noStroke();
   colorMode(HSB,360);
   //this color mode allows for the rainbow patterns used in my faverate design
-  var red=random(0,0);
-  var green=random(100,255);
-  var blue=random(green,green);
+  var red=0;
+  var green=0;
+  var blue=0;
   //i left this in to make changing between rgb and hsb easyer
   fill(color,360,360);
   stroke(color,360,360);
@@ -62,9 +62,9 @@ function draw() {
           if (flip1){
           if ((!flipSkip)||(!skipThis)){
             //this determains if the color should change
-            var red=random(0,0);
-            var green=random(100,255);
-            var blue=random(green,green);
+            var red=0;
+            var green=0;
+            var blue=0;
             fill(color,360,360);
             stroke(color,360,360);
             color+=5;
@@ -88,9 +88,9 @@ function draw() {
           if (flip2){
             if ((!flipSkip)||(!skipThis)){
               //changes the color
-              var red=random(0,0);
-              var green=random(100,255);
-              var blue=random(green,green);
+              var red=0;
+              var green=0;
+              var blue=0;
               fill(color,360,360);
              stroke(color,360,360);
              color+=5;
@@ -118,9 +118,9 @@ function draw() {
           if (flip3){
             if ((!flipSkip)||(!skipThis)){
               //changes the color
-              var red=random(0,0);
-              var green=random(100,255);
-              var blue=random(green,green);
+              var red=0;
+              var green=0;
+              var blue=0;
               fill(color,360,360);
               stroke(color,360,360);
               color+=5;
@@ -143,9 +143,9 @@ function draw() {
           flipNext=true;
           if (flip4){
             if ((!flipSkip)||(!skipThis)){
-              var red=random(0,0);
-              var green=random(100,255);
-              var blue=random(green,green);
+              var red=0;
+              var green0;
+              var blue=0;
               fill(color,360,360);
              stroke(color,360,360);
              color+=5;
@@ -170,9 +170,9 @@ function draw() {
     fliped=true;
    } 
   }
-    var red=random(0,0);
-  var green=random(100,255);
-  var blue=random(green,green);
+    var red=0;
+  var green=0);
+  var blue=0;
   fill(color,360,360);
   stroke(color,360,360);
   color+=5;
