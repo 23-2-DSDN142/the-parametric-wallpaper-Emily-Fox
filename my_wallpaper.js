@@ -23,27 +23,31 @@ function draw() {
   var skipThis = 0;
   var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
   var color =0;
+  var rainbow=true;
+  var rainbowIncrease=5;
+  var increase=93;
   noStroke();
-  colorMode(HSB,360);
+  if (rainbow)colorMode(HSB,360);
   //this color mode allows for the rainbow patterns used in my faverate design
   var red=0;
   var green=0;
-  var blue=0;
+  var blue=color;
   //i left this in to make changing between rgb and hsb easyer
+  if (rainbow){
   fill(color,360,360);
   stroke(color,360,360);
-  color+=5;
+  color+=rainbowIncrease;
   if (color>=360)color-=360;
+  }
+  //this allows for the rainbow pictures to be produced
+  else{
+    fill(red,green,blue);
+    stroke(red,green,blue);
+    color+=increase;
+    color%=256;
+  }
   //this sets the triangle color to something within the paramiters
   //in hindsight i should have made this into a function
-  //the rgb version works like this
-  //var red=0;
-  //var green=0);
-  //var blue=color;
-  //fill(red,green,blue);
-  //stroke(red,green,blue);
-  //color+=93;
-  //color%=256;
   for (var j=0;j<1000/triH;j++){
     for (var i=0;i<2000/triW;i++){
     //this runs the script once for every triangle
@@ -63,12 +67,22 @@ function draw() {
           if ((!flipSkip)||(!skipThis)){
             //this determains if the color should change
             var red=0;
-            var green=0;
-            var blue=0;
-            fill(color,360,360);
-            stroke(color,360,360);
-            color+=5;
-            if (color>=360)color-=360;
+           var green=0;
+            var blue=color;
+            //i left this in to make changing between rgb and hsb easyer
+            if (rainbow){
+             fill(color,360,360);
+             stroke(color,360,360);
+              color+=rainbowIncrease;
+              if (color>=360)color-=360;
+            }
+  //this allows for the rainbow pictures to be produced
+           else{
+             fill(red,green,blue);
+             stroke(red,green,blue);
+             color+=increase;
+             color%=256;
+            }
             if (spaces)i++;
           }
           if (skipThis==skipTurns)skipThis=0;
@@ -90,11 +104,20 @@ function draw() {
               //changes the color
               var red=0;
               var green=0;
-              var blue=0;
-              fill(color,360,360);
-             stroke(color,360,360);
-             color+=5;
-             if (color>=360)color-=360;
+              var blue=color;
+              if (rainbow){
+                fill(color,360,360);
+                stroke(color,360,360);
+                 color+=rainbowIncrease;
+                 if (color>=360)color-=360;
+               }
+     //this allows for the rainbow pictures to be produced
+              else{
+                fill(red,green,blue);
+                stroke(red,green,blue);
+                color+=increase;
+                color%=256;
+               }
               if (spaces)i++;
             }
             if (skipThis==skipTurns)skipThis=0;
@@ -120,11 +143,20 @@ function draw() {
               //changes the color
               var red=0;
               var green=0;
-              var blue=0;
-              fill(color,360,360);
-              stroke(color,360,360);
-              color+=5;
-              if (color>=360)color-=360;
+              var blue=color;
+              if (rainbow){
+                fill(color,360,360);
+                stroke(color,360,360);
+                 color+=rainbowIncrease;
+                 if (color>=360)color-=360;
+               }
+     //this allows for the rainbow pictures to be produced
+              else{
+                fill(red,green,blue);
+                stroke(red,green,blue);
+                color+=increase;
+                color%=256;
+               }
               if (spaces)i++;
             }
             if (skipThis==skipTurns)skipThis=0;
@@ -145,11 +177,20 @@ function draw() {
             if ((!flipSkip)||(!skipThis)){
               var red=0;
               var green0;
-              var blue=0;
-              fill(color,360,360);
-             stroke(color,360,360);
-             color+=5;
-             if (color==360)color=0;
+              var blue=color;
+              if (rainbow){
+                fill(color,360,360);
+                stroke(color,360,360);
+                 color+=rainbowIncrease;
+                 if (color>=360)color-=360;
+               }
+     //this allows for the rainbow pictures to be produced
+              else{
+                fill(red,green,blue);
+                stroke(red,green,blue);
+                color+=increase;
+                color%=256;
+               }
               //changes the color
               if (spaces)i++;
             }
@@ -171,12 +212,21 @@ function draw() {
    } 
   }
     var red=0;
-  var green=0);
-  var blue=0;
-  fill(color,360,360);
-  stroke(color,360,360);
-  color+=5;
-  if (color>=360)color-=360;
+  var green=0;
+  var blue=color;
+  if (rainbow){
+    fill(color,360,360);
+    stroke(color,360,360);
+     color+=rainbowIncrease;
+     if (color>=360)color-=360;
+   }
+//this allows for the rainbow pictures to be produced
+  else{
+    fill(red,green,blue);
+    stroke(red,green,blue);
+    color+=increase;
+    color%=256;
+   }
   if (rowSpaces)j++;
   //one last color change
 }
