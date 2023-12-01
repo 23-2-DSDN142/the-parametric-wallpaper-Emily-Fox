@@ -1,6 +1,6 @@
 //setup - run once when the code is first starts
 function setup() {
-  createCanvas(1080, 720); // this sets the size of the area in which we can draw things. We call it a canvas
+  createCanvas(2000, 1000); // this sets the size of the area in which we can draw things. We call it a canvas
   textSize(32); // sets the size of the textAscent()
 
 }
@@ -8,11 +8,11 @@ function setup() {
 function draw() {
   clear(); // resets all elements on screen
   background(255); // this makes the whole canvas the screen white
-  var triH = 60;
+  var triH = 2000/18;
   var triW = triH/2;//thease are the size of the single triangles
   var fliped = false;
   var flipNext = true;//thease two variables control the four possible orentations of the single triangles
-  var allign = false; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
   var spaces = false;//this disconnects the triangles allowing you to play with negative space.
   var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
   var flip1 = true;
@@ -22,16 +22,30 @@ function draw() {
   var flipSkip = false;
   var skipThis = 0;
   var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
   noStroke();
+  colorMode(HSB,360);
+  //this color mode allows for the rainbow patterns used in my faverate design
   var red=random(0,0);
   var green=random(100,255);
   var blue=random(green,green);
-  fill(red,green,blue);
-  stroke(red,green,blue);
+  //i left this in to make changing between rgb and hsb easyer
+  fill(color,360,360);
+  stroke(color,360,360);
+  color+=5;
+  if (color>=360)color-=360;
   //this sets the triangle color to something within the paramiters
   //in hindsight i should have made this into a function
-  for (var j=0;j<720/triH;j++){
-    for (var i=0;i<1080/triW;i++){
+  //the rgb version works like this
+  //var red=0;
+  //var green=0);
+  //var blue=color;
+  //fill(red,green,blue);
+  //stroke(red,green,blue);
+  //color+=93;
+  //color%=256;
+  for (var j=0;j<1000/triH;j++){
+    for (var i=0;i<2000/triW;i++){
     //this runs the script once for every triangle
       if (!fliped){
         if (flipNext){
@@ -51,8 +65,10 @@ function draw() {
             var red=random(0,0);
             var green=random(100,255);
             var blue=random(green,green);
-            fill(red,green,blue);
-            stroke(red,green,blue);
+            fill(color,360,360);
+            stroke(color,360,360);
+            color+=5;
+            if (color>=360)color-=360;
             if (spaces)i++;
           }
           if (skipThis==skipTurns)skipThis=0;
@@ -75,8 +91,10 @@ function draw() {
               var red=random(0,0);
               var green=random(100,255);
               var blue=random(green,green);
-              fill(red,green,blue);
-              stroke(red,green,blue);
+              fill(color,360,360);
+             stroke(color,360,360);
+             color+=5;
+             if (color>=360)color-=360;
               if (spaces)i++;
             }
             if (skipThis==skipTurns)skipThis=0;
@@ -103,8 +121,10 @@ function draw() {
               var red=random(0,0);
               var green=random(100,255);
               var blue=random(green,green);
-              fill(red,green,blue);
-              stroke(red,green,blue);
+              fill(color,360,360);
+              stroke(color,360,360);
+              color+=5;
+              if (color>=360)color-=360;
               if (spaces)i++;
             }
             if (skipThis==skipTurns)skipThis=0;
@@ -126,8 +146,10 @@ function draw() {
               var red=random(0,0);
               var green=random(100,255);
               var blue=random(green,green);
-              fill(red,green,blue);
-              stroke(red,green,blue);
+              fill(color,360,360);
+             stroke(color,360,360);
+             color+=5;
+             if (color==360)color=0;
               //changes the color
               if (spaces)i++;
             }
@@ -151,8 +173,10 @@ function draw() {
     var red=random(0,0);
   var green=random(100,255);
   var blue=random(green,green);
-  fill(red,green,blue);
-  stroke(red,green,blue);
+  fill(color,360,360);
+  stroke(color,360,360);
+  color+=5;
+  if (color>=360)color-=360;
   if (rowSpaces)j++;
   //one last color change
 }
