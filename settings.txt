@@ -10,45 +10,221 @@ Your final settings.txt will look something like this when you are finished:
 Wallpaper 1:
 
 //your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
-let paramter1 = 10;
-let paramter2 = true;
-let paramter3 = 50; 
-let paramter4 = 0; 
-let paramter5 = 60;
+var triH = 2000/18;
+  var triW = triH/2;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = false;
+  var flip3 = true;
+  var flip4 = false;//thease variables control wether or not the color should change in each state
+  var flipSkip = true;
+  var skipThis = 0;
+  var skipTurns = 1;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=false;
+  var rainbowIncrease=5;
+  var increase=93;
 
-function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
-
-  //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 50;
-}
+  //color settings
+ var red=color;
+  var green=0;
+  var blue=color;
 
 /////////////////////////////////
 
 Wallpaper 2:
 
 //your parameter variables go here!
-let rect_width  = 10;
-let rect_height = 10;
-let paramter1 = 20;
-let paramter2 = false;
-let paramter3 = 50; 
-let paramter4 = 80; 
-let paramter5 = 30;
+var triH = 2000/18;
+  var triW = triH/2;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = true;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = false;
+  var flip3 = true;
+  var flip4 = false;//thease variables control wether or not the color should change in each state
+  var flipSkip = false;
+  var skipThis = 0;
+  var skipTurns = 1;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=false;
+  var rainbowIncrease=5;
+  var increase=93;
 
-function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
-  pWallpaper.show_guide(false); //set this to false when you're ready to print
+   //color settings
+ var red=0;
+  var green=0;
+  var blue=color;
 
-  //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 0;
-}
+Wallpaper 3:
+
+//your parameter variables go here!
+var triH = 2000/18;
+  var triW = triH/2;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = false; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = false;
+  var flip3 = true;
+  var flip4 = false;//thease variables control wether or not the color should change in each state
+  var flipSkip = false;
+  var skipThis = 0;
+  var skipTurns = 1;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=false;
+  var rainbowIncrease=5;
+  var increase=93;   
+   //color settings
+ var red=0;
+  var green=0;
+  var blue=color;
+Wallpaper 4:
+
+//your parameter variables go here!
+var triH = 2000/18;
+  var triW = triH/2;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = false;
+  var flip3 = true;
+  var flip4 = false;//thease variables control wether or not the color should change in each state
+  var flipSkip = true;
+  var skipThis = 0;
+  var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=false;
+  var rainbowIncrease=5;
+  var increase=93; 
+   //color settings
+ var red=color;
+  var green=0;
+  var blue=color;
+Wallpaper 5:
+var triH = 2000/18;
+  var triW = triH/2;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = true;
+  var flip3 = true;
+  var flip4 = true;//thease variables control wether or not the color should change in each state
+  var flipSkip = false;
+  var skipThis = 0;
+  var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=false;
+  var rainbowIncrease=5;
+  var increase=93;
+//your parameter variables go here!
+
+   //color settings
+ var red=0;
+  var green=0;
+  var blue=color;
+Wallpaper 6:
+var triH = 2000/18;
+  var triW = triH/2;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = false;
+  var flip3 = true;
+  var flip4 = false;//thease variables control wether or not the color should change in each state
+  var flipSkip = false;
+  var skipThis = 0;
+  var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=false;
+  var rainbowIncrease=5;
+  var increase=93;
+//your parameter variables go here!
+
+   //color settings
+ var red=0;
+  var green=green;
+  var blue=0;
+Wallpaper 7:
+var triH = 2000/18;
+  var triW = triH;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = false;
+  var flip3 = true;
+  var flip4 = false;//thease variables control wether or not the color should change in each state
+  var flipSkip = false;
+  var skipThis = 0;
+  var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=false;
+  var rainbowIncrease=5;
+  var increase=93;
+//your parameter variables go here!
+
+   //color settings
+ var red=color;
+  var green=0;
+  var blue=0;
+Wallpaper 8:
+
+//your parameter variables go here!
+ var triH = 2000/18;
+  var triW = triH/2;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = false;
+  var flip3 = true;
+  var flip4 = false;//thease variables control wether or not the color should change in each state
+  var flipSkip = false;
+  var skipThis = 0;
+  var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=true;
+  var rainbowIncrease=25;
+  var increase=93;
+Wallpaper 9:
+var triH = 2000/18;
+  var triW = triH/2;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = true;
+  var flip3 = true;
+  var flip4 = true;//thease variables control wether or not the color should change in each state
+  var flipSkip = false;
+  var skipThis = 0;
+  var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=true;
+  var rainbowIncrease=5;
+  var increase=93;
