@@ -1,23 +1,235 @@
-//your parameter variables go here!
-let rect_width  = 20;
-let rect_height = 20;
+//setup - run once when the code is first starts
+function setup() {
+  createCanvas(2000, 1000); // this sets the size of the area in which we can draw things. We call it a canvas
+  textSize(32); // sets the size of the textAscent()
 
-
-function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
-  pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
-
-  //Grid settings
-  pWallpaper.grid_settings.cell_width  = 200;
-  pWallpaper.grid_settings.cell_height = 200;
-  pWallpaper.grid_settings.row_offset  = 50;
 }
+//draw - this function loops, the code within read through repeatedly while running
+function draw() {
+  clear(); // resets all elements on screen
+  background(255); // this makes the whole canvas the screen white
+  var triH = 2000/18;
+  var triW = triH/2;//thease are the size of the single triangles
+  var fliped = false;
+  var flipNext = true;//thease two variables control the four possible orentations of the single triangles
+  var allign = true; //this lines up the shapes created by the program in a way that makes them act as a mirror image of each other
+  var spaces = false;//this disconnects the triangles allowing you to play with negative space.
+  var rowSpaces = false;//this does the same thing on the y axis not very interesting in my opinion
+  var flip1 = true;
+  var flip2 = true;
+  var flip3 = true;
+  var flip4 = true;//thease variables control wether or not the color should change in each state
+  var flipSkip = false;
+  var skipThis = 0;
+  var skipTurns = 2;//this allows the program to skip color changes, allowing for more interesting shapes
+  var color =0;
+  var rainbow=true;
+  var rainbowIncrease=5;
+  var increase=93;
+  noStroke();
+  if (rainbow)colorMode(HSB,360);
+  //this color mode allows for the rainbow patterns used in my faverate design
+  var red=0;
+  var green=0;
+  var blue=color;
+  //i left this in to make changing between rgb and hsb easyer
+  if (rainbow){
+  fill(color,360,360);
+  stroke(color,360,360);
+  color+=rainbowIncrease;
+  if (color>=360)color-=360;
+  }
+  //this allows for the rainbow pictures to be produced
+  else{
+    fill(red,green,blue);
+    stroke(red,green,blue);
+    color+=increase;
+    color%=256;
+  }
+  //this sets the triangle color to something within the paramiters
+  //in hindsight i should have made this into a function
+  for (var j=0;j<1000/triH;j++){
+    for (var i=0;i<2000/triW;i++){
+    //this runs the script once for every triangle
+      if (!fliped){
+        if (flipNext){
+          beginShape();
+          vertex(i*triW,j*triH);
+          vertex(triW+(i*triW),(j*triH));
+          vertex((i*triW),triH+(j*triH));
+          vertex(i*triW,j*triH);
+          endShape();
+          flipNext=false;
+          fliped=true;
+          //this draws a right angle triangle like you would see in a top left corner
+          i--;
+          if (flip1){
+          if ((!flipSkip)||(!skipThis)){
+            //this determains if the color should change
+            var red=0;
+           var green=0;
+            var blue=color;
+            //i left this in to make changing between rgb and hsb easyer
+            if (rainbow){
+             fill(color,360,360);
+             stroke(color,360,360);
+              color+=rainbowIncrease;
+              if (color>=360)color-=360;
+            }
+  //this allows for the rainbow pictures to be produced
+           else{
+             fill(red,green,blue);
+             stroke(red,green,blue);
+             color+=increase;
+             color%=256;
+            }
+            if (spaces)i++;
+          }
+          if (skipThis==skipTurns)skipThis=0;
+            else skipThis++;
+          }
+          //updates the skip
+        }
+        else{
+          beginShape();
+          vertex(triW+(i*triW),(j*triH));
+          vertex(i*triW,j*triH);
+          vertex(triW+(i*triW),triH+(j*triH));
+          vertex(triW+(i*triW),(j*triH));
+          endShape();
+          //this draws a top right corner triangle
+          flipNext=true;
+          if (flip2){
+            if ((!flipSkip)||(!skipThis)){
+              //changes the color
+              var red=0;
+              var green=0;
+              var blue=color;
+              if (rainbow){
+                fill(color,360,360);
+                stroke(color,360,360);
+                 color+=rainbowIncrease;
+                 if (color>=360)color-=360;
+               }
+     //this allows for the rainbow pictures to be produced
+              else{
+                fill(red,green,blue);
+                stroke(red,green,blue);
+                color+=increase;
+                color%=256;
+               }
+              if (spaces)i++;
+            }
+            if (skipThis==skipTurns)skipThis=0;
+            else skipThis++;
+            //updates the skip
+            }
+        }
+      }
+      else{
+        if (flipNext){
+          beginShape();
+          vertex((i*triW),triH+(j*triH));
+          vertex(i*triW,j*triH);
+          vertex(triW+(i*triW),+triH+(j*triH));
+          vertex((i*triW),triH+(j*triH));
+          endShape();
+          flipNext=false;
+          fliped=false;
+          //this draws a bottem left corner triangle
+          i--;
+          if (flip3){
+            if ((!flipSkip)||(!skipThis)){
+              //changes the color
+              var red=0;
+              var green=0;
+              var blue=color;
+              if (rainbow){
+                fill(color,360,360);
+                stroke(color,360,360);
+                 color+=rainbowIncrease;
+                 if (color>=360)color-=360;
+               }
+     //this allows for the rainbow pictures to be produced
+              else{
+                fill(red,green,blue);
+                stroke(red,green,blue);
+                color+=increase;
+                color%=256;
+               }
+              if (spaces)i++;
+            }
+            if (skipThis==skipTurns)skipThis=0;
+            else skipThis++;
+            //updates the skip
+          }
+        }
+        else{
+          beginShape();
+          vertex(triW+(i*triW),triH+(j*triH));
+          vertex(triW+(i*triW),(j*triH));
+          vertex((i*triW),triH+(j*triH));
+          vertex(triW+(i*triW),triH+(j*triH));
+          endShape();
+          //this draws a bottem right corrner triangle
+          flipNext=true;
+          if (flip4){
+            if ((!flipSkip)||(!skipThis)){
+              var red=0;
+              var green0;
+              var blue=color;
+              if (rainbow){
+                fill(color,360,360);
+                stroke(color,360,360);
+                 color+=rainbowIncrease;
+                 if (color>=360)color-=360;
+               }
+     //this allows for the rainbow pictures to be produced
+              else{
+                fill(red,green,blue);
+                stroke(red,green,blue);
+                color+=increase;
+                color%=256;
+               }
+              //changes the color
+              if (spaces)i++;
+            }
+            if (skipThis==skipTurns)skipThis=0;
+            else skipThis++;
+            //updates the skip
+            }
+        }
+      }
+   }
+   if (allign){
+    //this code basicly reverses the orentation of the triangle
+   if (fliped){
+    fliped=false;
 
-function wallpaper_background() {
-  background(240, 255, 240); //light honeydew green colour
+   }
+   else {
+    fliped=true;
+   } 
+  }
+    var red=0;
+  var green=0;
+  var blue=color;
+  if (rainbow){
+    fill(color,360,360);
+    stroke(color,360,360);
+     color+=rainbowIncrease;
+     if (color>=360)color-=360;
+   }
+//this allows for the rainbow pictures to be produced
+  else{
+    fill(red,green,blue);
+    stroke(red,green,blue);
+    color+=increase;
+    color%=256;
+   }
+  if (rowSpaces)j++;
+  //one last color change
 }
-
-function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  rect(40 ,40, rect_width, rect_height);
+  sleep(9999999999999999999999);
+  //this stops the program from doing anything else
 }
